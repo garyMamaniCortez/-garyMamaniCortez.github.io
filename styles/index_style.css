@@ -81,13 +81,13 @@ header nav ul li a:hover {
 }
 
 .text h2 {
-	font-size:40px;
+	font-size:250%;
 	letter-spacing: 2.5px;
 	font-weight: normal;
 }
 
 .text h3 {
-	font-size:30px;
+	font-size:200%;
 	letter-spacing: 2.5px;
 	font-weight: normal;
 }
