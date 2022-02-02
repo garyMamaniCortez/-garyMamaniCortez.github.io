@@ -386,64 +386,6 @@ function launchParticlesJS(tag_id, params){
 
   };
 
-  pJS.fn.vendors.interactivity.listeners = function(){
-
-    if(pJS.interactivity.detect_on == 'window'){
-      var detect_el = window;
-    }else{
-      var detect_el = pJS.canvas.el;
-    }
-
-    detect_el.onmousemove = function(e){
-
-      if(detect_el == window){
-        var pos_x = e.clientX,
-            pos_y = e.clientY;
-      }
-      else{
-        var pos_x = e.offsetX||e.clientX,
-            pos_y = e.offsetY||e.clientY;
-      }
-
-      if(pJS){
-
-        pJS.interactivity.mouse.pos_x = pos_x;
-        pJS.interactivity.mouse.pos_y = pos_y;
-
-        if(pJS.retina){
-          pJS.interactivity.mouse.pos_x *= pJS.canvas.pxratio;
-          pJS.interactivity.mouse.pos_y *= pJS.canvas.pxratio;
-        }
-        pJS.interactivity.status = 'mousemove';
-      }
-    };
-
-    detect_el.onmouseleave = function(e){
-
-      if(pJS){
-        pJS.interactivity.mouse.pos_x = 0;
-        pJS.interactivity.mouse.pos_y = 0;
-        pJS.interactivity.status = 'mouseleave';
-      }
-    };
-
-    if(pJS.interactivity.events.onclick.enable){
-      switch(pJS.interactivity.events.onclick.mode){
-        case 'push':
-          detect_el.onclick = function(e){
-            pJS.fn.vendors.interactivity.pushParticles(pJS.interactivity.events.onclick.nb, pJS.interactivity.mouse);
-          }
-        break;
-
-        case 'remove':
-          detect_el.onclick = function(e){
-            pJS.fn.vendors.interactivity.removeParticles(pJS.interactivity.events.onclick.nb);
-          }
-        break;
-      }
-    }
-  };
-
   pJS.fn.vendors.interactivity.pushParticles = function(nb, pos){
     if(pJS){
       for(var i = 0; i < nb; i++){
